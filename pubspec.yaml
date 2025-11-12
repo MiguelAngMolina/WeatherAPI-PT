@@ -11,9 +11,34 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  flutter_flavorizr: ^2.4.1
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
+
+
+flavorizr:
+  flavors:
+    dev:
+      app:
+        name: "Weather App Dev"
+      android:
+        applicationId: "com.miguelamolina.wheatherapp.dev"
+      ios:
+        bundleId: "com.miguelamolina.wheatherapp.dev"
+      assets:
+        - assets/dev/   
+            
+    prod:
+      app:
+        name: "Weather App"
+      android:
+        applicationId: "com.miguelamolina.wheatherapp"
+      ios:
+        bundleId: "com.miguelamolina.wheatherapp"
+      assets:
+        - assets/prod/   
+      
