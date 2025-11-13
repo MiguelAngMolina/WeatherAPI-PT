@@ -1,19 +1,20 @@
 
 import 'package:flutter/material.dart';
+import 'package:weatherapi_gse/config/router/app_router.dart';
 
 import 'flavors.dart';
-import '../pages/my_home_page.dart';
+
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: F.title,
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: MyHomePage()
+      routerConfig: router,
     );
   }
 

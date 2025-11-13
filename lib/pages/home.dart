@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../flavors/flavors.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(F.title)),
-      body: Center(child: Text('Hello ${F.title}')),
+      body: Center(child: Text('Hola ${F.title}')),
     );
   }
 }

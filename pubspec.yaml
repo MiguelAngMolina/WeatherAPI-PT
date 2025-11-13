@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  go_router: ^17.0.0
 
 dev_dependencies:
   flutter_flavorizr: ^2.4.1
@@ -16,9 +17,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+
 flutter:
   uses-material-design: true
-
 
 flavorizr:
   flavors:
@@ -30,8 +31,8 @@ flavorizr:
       ios:
         bundleId: "com.miguelamolina.wheatherapp.dev"
       assets:
-        - assets/dev/   
-            
+        - assets/dev/
+
     prod:
       app:
         name: "Weather App"
@@ -40,5 +41,4 @@ flavorizr:
       ios:
         bundleId: "com.miguelamolina.wheatherapp"
       assets:
-        - assets/prod/   
-      
+        - assets/prod/
