@@ -1,5 +1,5 @@
 import 'package:weatherapi_gse/domain/entities/entities.dart';
-import 'package:weatherapi_gse/infrastructure/models/reports_response.dart' hide Day;
+import 'package:weatherapi_gse/infrastructure/models/reports_response.dart';
 
 class ReportMapper {
   static Report reportResponsetoEntity(ReportResponse report) => Report(

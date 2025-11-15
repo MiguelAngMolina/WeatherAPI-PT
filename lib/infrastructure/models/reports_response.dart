@@ -8,7 +8,7 @@ class ReportResponse {
     final String address;
     final String timezone;
     final double tzoffset;
-    final List<Day> days;
+    final List<DayResponse> days;
 
     ReportResponse({
         required this.queryCost,
@@ -29,7 +29,7 @@ class ReportResponse {
         address: json["address"],
         timezone: json["timezone"],
         tzoffset: json["tzoffset"].toDouble(),
-        days: List<Day>.from(json["days"].map((x) => Day.fromJson(x))),
+        days: List<DayResponse>.from(json["days"].map((x) => DayResponse.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -44,7 +44,7 @@ class ReportResponse {
     };
 }
 
-class Day {
+class DayResponse {
     final DateTime datetime;
     final int datetimeEpoch;
     final double tempmax;
@@ -81,7 +81,7 @@ class Day {
     final String icon;
     final String source;
 
-    Day({
+    DayResponse({
         required this.datetime,
         required this.datetimeEpoch,
         required this.tempmax,
@@ -119,7 +119,7 @@ class Day {
         required this.source,
     });
 
-    factory Day.fromJson(Map<String, dynamic> json) => Day(
+    factory DayResponse.fromJson(Map<String, dynamic> json) => DayResponse(
         datetime: DateTime.parse(json["datetime"]),
         datetimeEpoch: json["datetimeEpoch"],
         tempmax: json["tempmax"]?.toDouble(),
@@ -145,7 +145,7 @@ class Day {
         solarradiation: json["solarradiation"]?.toDouble(),
         solarenergy: json["solarenergy"]?.toDouble(),
         uvindex: json["uvindex"]?.toDouble(),
-        severerisk: json["severerisk"]?.toDouble(),
+        severerisk: json["severerisk"]?.toDouble() ?? 0.0,
         sunrise: json["sunrise"],
         sunriseEpoch: json["sunriseEpoch"],
         sunset: json["sunset"],

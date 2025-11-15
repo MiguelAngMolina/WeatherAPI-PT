@@ -12,4 +12,14 @@ class Report {
     required this.longitude,
     required this.days,
   });
+
+  @override
+  String toString() {
+    return '''
+      location: $location, 
+      latitude: $latitude, 
+      longitude: $longitude, 
+      days: ${days.toString()})
+    ''';
+  }
 }

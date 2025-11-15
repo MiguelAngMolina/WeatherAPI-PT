@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/flavors/app.dart';
 import 'config/flavors/flavors.dart';
@@ -17,5 +18,9 @@ void main() async {
     (element) => element.name == appFlavor,
   );
 
-  runApp(const App());
+  
+  runApp(
+    const ProviderScope(
+      child: App())
+     );
 }

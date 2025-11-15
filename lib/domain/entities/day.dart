@@ -50,4 +50,36 @@ class Day {
     required this.description,
     required this.icon,
   });
+
+
+  @override
+  String toString() {
+    return '''
+
+        datetime: $datetime,
+        tempmax: $tempmax,
+        tempmin: $tempmin,
+        tempavg: $tempavg,
+        feelslimax: $feelslimax,
+        feelslikemin: $feelslikemin,
+        feelslikeavg: $feelslikeavg,
+        humidity: $humidity,
+        precipprob: $precipprob,
+        preciptype: $preciptype,
+        snowdepth: $snowdepth,
+        windspeed: $windspeed,
+        winddir: $winddir,
+        pressure: $pressure,
+        cloudcover: $cloudcover,
+        visibility: $visibility,
+        uvindex: $uvindex,
+        severerisk: $severerisk,
+        sunrise: $sunrise,
+        sunset: $sunset,
+        moonphase: $moonphase,
+        conditions: $conditions,
+        description: $description,
+        icon: $icon,
+  ''';
+  }
 }
