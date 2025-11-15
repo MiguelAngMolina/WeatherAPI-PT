@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/presentation/providers/report_provider.dart';
 
 class Home extends ConsumerWidget {
@@ -28,12 +29,25 @@ class Home extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 12),
-            ElevatedButton(
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                onPressed: () {
+                  ref.read(reportStateProvider.notifier).newReport("London");
+                },
+                child: const Text('Solicitar nuevo reporte'),
+              ),
+
+              ElevatedButton(
               onPressed: () {
-                ref.read(reportStateProvider.notifier).newReport("London");
+                context.push('/report');
               },
-              child: const Text('Solicitar nuevo reporte'),
+              child: const Text('Nueva '),
             ),
+              ]
+            ),
+            
           ],
         ),
       ),
