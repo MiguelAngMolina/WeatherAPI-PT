@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:weatherapi_gse/pages/home.dart';
+import 'package:weatherapi_gse/presentation/home.dart';
 
 final GoRouter router =  GoRouter(
   routes: [
@@ -8,5 +8,4 @@ final GoRouter router =  GoRouter(
       path: '/',
       builder: (context, state) => Home(),
       )
-
   ]);
