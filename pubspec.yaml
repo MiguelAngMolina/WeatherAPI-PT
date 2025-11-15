@@ -7,8 +7,10 @@ environment:
   sdk: ^3.9.0
 
 dependencies:
+  dio: ^5.9.0
   flutter:
     sdk: flutter
+  flutter_dotenv: ^6.0.0
   go_router: ^17.0.0
 
 dev_dependencies:
@@ -17,9 +19,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
 flutter:
   uses-material-design: true
+  assets:
+    - .env
+    
 
 flavorizr:
   flavors:
@@ -32,6 +36,7 @@ flavorizr:
         bundleId: "com.miguelamolina.wheatherapp.dev"
       assets:
         - assets/dev/
+        - .env
 
     prod:
       app:
@@ -42,3 +47,4 @@ flavorizr:
         bundleId: "com.miguelamolina.wheatherapp"
       assets:
         - assets/prod/
+        - .env
