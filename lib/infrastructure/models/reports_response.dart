@@ -133,7 +133,7 @@ class DayResponse {
         precip: json["precip"]?.toDouble(),
         precipprob: json["precipprob"]?.toDouble(),
         precipcover: json["precipcover"]?.toDouble(),
-        preciptype: List<String>.from(json["preciptype"].map((x) => x)),
+        preciptype: json["preciptype"] == null ? [] : List<String>.from(json["preciptype"].map((x) => x)),
         snow: json["snow"],
         snowdepth: json["snowdepth"]?.toDouble(),
         windgust: json["windgust"]?.toDouble(),
