@@ -142,9 +142,11 @@ class DayResponse {
         pressure: json["pressure"]?.toDouble(),
         cloudcover: json["cloudcover"]?.toDouble(),
         visibility: json["visibility"]?.toDouble(),
-        solarradiation: json["solarradiation"]?.toDouble(),
-        solarenergy: json["solarenergy"]?.toDouble(),
-        uvindex: json["uvindex"]?.toDouble(),
+        solarradiation: json["solarradiation"]?.toDouble() ?? 0.0,
+        solarenergy: json["solarenergy"]?.toDouble() ?? 0.0,
+        uvindex: json["uvindex"] != null 
+        ? double.parse(json["uvindex"].toString())
+        : 0.0, 
         severerisk: json["severerisk"]?.toDouble() ?? 0.0,
         sunrise: json["sunrise"],
         sunriseEpoch: json["sunriseEpoch"],

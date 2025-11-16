@@ -37,7 +37,7 @@ class WeatherDetailsCard extends StatelessWidget {
               WeatherDetailItem(
                 icon: Icons.wb_sunny,
                 label: "Índice UV",
-                value: "${dia.uvindex}%",
+                value: "${dia.uvindex}",
               ),
             ],
           ),

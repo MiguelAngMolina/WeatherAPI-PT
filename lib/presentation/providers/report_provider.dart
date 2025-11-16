@@ -5,7 +5,7 @@ import 'package:weatherapi_gse/presentation/providers/report_repository_provider
 
 part 'report_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class ReportState extends _$ReportState {
   
   @override
