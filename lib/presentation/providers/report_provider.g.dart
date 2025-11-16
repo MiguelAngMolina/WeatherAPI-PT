@@ -20,7 +20,7 @@ final class ReportStateProvider
         argument: null,
         retry: null,
         name: r'reportStateProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -33,7 +33,7 @@ final class ReportStateProvider
   ReportState create() => ReportState();
 }
 
-String _$reportStateHash() => r'cb2bdcfa88a411ba4e49e55e6b9824d9ad8f8dec';
+String _$reportStateHash() => r'22855e34563b139f88e3368f4c695273e8b7bd80';
 
 abstract class _$ReportState extends $AsyncNotifier<Report> {
   FutureOr<Report> build();
