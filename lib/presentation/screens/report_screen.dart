@@ -18,7 +18,9 @@ class ReportScreen extends ConsumerWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: reportAsync.when(
-            data: (report) => WeatherBody(report: report),
+            data: (report) => report == null 
+            ? Text('No hay Datos')
+            : WeatherBody(report: report),
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (err, stack) => Text('Error: $err'),
           ),

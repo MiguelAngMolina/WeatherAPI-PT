@@ -63,8 +63,6 @@ void _searchAddress() async {
       LatLng(result.latitude, result.longitude),
     ),
   );
-
-  // Mostrar el botón después de 1 segundo
   setState(() {
     showWeatherButton = false;
   });

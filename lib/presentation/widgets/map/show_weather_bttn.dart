@@ -29,11 +29,7 @@ class ShowWeatherReportButton extends StatelessWidget {
           onPressed: () {
               final locationName = searchController.text.trim();
               if (locationName.isEmpty) return;
-
-              // Llamamos al provider sin await
               ref.read(reportStateProvider.notifier).newReport(locationName);
-
-              // Navegamos de inmediato
               context.push('/report'); 
             },
           style: ElevatedButton.styleFrom(

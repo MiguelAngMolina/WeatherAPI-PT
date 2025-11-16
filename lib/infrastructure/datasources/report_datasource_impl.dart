@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:weatherapi_gse/config/constants/environment.dart';
+import 'package:weatherapi_gse/config/helpers/error_handling.dart';
 import 'package:weatherapi_gse/domain/domain.dart';
 import 'package:weatherapi_gse/domain/entities/entities.dart';
 import 'package:weatherapi_gse/infrastructure/mappers/report_mapper.dart';
@@ -10,15 +11,12 @@ class ReportDatasourceImpl extends ReportDatasource{
   final dio = Dio(
     BaseOptions(
       baseUrl: 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
-      queryParameters: {
-
-      }
     )
   );
   
   @override
   Future<Report> getReport(String location) async {
-
+  try{
     final response = await dio.get(
       '$location/last2days',
       queryParameters: {
@@ -27,16 +25,15 @@ class ReportDatasourceImpl extends ReportDatasource{
         "lang": "es",
         "unitGroup": "metric",
         "elements": "remove:stations"
-      });
-
-
+      },
+      );
       final reportResponse = ReportResponse.fromJson(response.data);
       // print("===== REPORT RESPONSE =====");
       // print(reportResponse.toJson());
       final Report report = ReportMapper.reportResponsetoEntity(reportResponse);
-
       return report;
-    
+    } catch (e) {
+      throw ApiException('Error inesperado: $e');
+    }
   }
-
 }

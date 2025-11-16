@@ -9,15 +9,22 @@ part 'report_provider.g.dart';
 class ReportState extends _$ReportState {
   
   @override
-  Future<Report> build() async {
-    final repo = ref.read(reportRepositoryProvider);
-    return await repo.getReport("Bucaramanga, Colombia");
+    AsyncValue<Report?> build() {
+    return const AsyncValue.data(null);
   }
 
   Future<void> newReport(String location) async {
     state = const AsyncValue.loading();
     final reportRepo = ref.read(reportRepositoryProvider);
+
+    try{
     final report = await reportRepo.getReport(location);
+        print('Busqueda de la $location');
      state = AsyncValue.data(report);
+
+    } catch(e, st){
+      state = AsyncValue.error(e, st);
+    }
+
   }
 }
