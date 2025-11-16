@@ -34,7 +34,7 @@ class Home extends ConsumerWidget {
               children: [
                 ElevatedButton(
                 onPressed: () {
-                  ref.read(reportStateProvider.notifier).newReport("London");
+                  ref.read(reportStateProvider.notifier).newReport("Barcelona");
                 },
                 child: const Text('Solicitar nuevo reporte'),
               ),

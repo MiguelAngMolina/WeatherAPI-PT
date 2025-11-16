@@ -15,6 +15,7 @@ class Day {
   final String sunset;
   final String conditions;
   final String description;
+  final String icon;
 
 
   Day({
@@ -34,6 +35,7 @@ class Day {
     required this.sunset,
     required this.conditions,
     required this.description,
+    required this.icon
   });
 
 
@@ -57,6 +59,7 @@ class Day {
         sunset: $sunset,
         conditions: $conditions,
         description: $description,
+        icon: $icon
   ''';
   }
 }

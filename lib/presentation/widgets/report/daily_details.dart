@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weatherapi_gse/config/helpers/dateformart.dart';
+import 'package:weatherapi_gse/config/helpers/wheater_icons.dart';
 import 'package:weatherapi_gse/domain/entities/day.dart';
 
 class DailyDetails extends StatelessWidget {
@@ -85,12 +86,11 @@ class DailyDetails extends StatelessWidget {
               const SizedBox(width: 16),
               ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  "https://img.freepik.com/vector-gratis/ilustracion-sol-dibujos-animados-sonrisa-feliz_1308-179974.jpg?semt=ais_hybrid&w=740&q=80",
-                  width: 64,
-                  height: 64,
-                  fit: BoxFit.cover,
-                ),
+                child: Icon(
+                    WeatherIconsMapper.getIcon(dia.icon), 
+                    size: 48,
+                    color: Colors.green.shade900,
+                  )
               ),
             ],
           ),

@@ -59,7 +59,7 @@ class WeatherBody extends StatelessWidget {
             ),
               const SizedBox(height: 16),
 
-              ...report.days.asMap().entries.map((entry) {
+              ...report.days.reversed.toList().asMap().entries.map((entry) {
               final index = entry.key;
               final dia = entry.value;
 

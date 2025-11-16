@@ -24,6 +24,7 @@ class ReportMapper {
         sunset: e.sunset,
         conditions: e.conditions,
         description: e.description,
+        icon: e.icon
       )).toList()
   );
 }
