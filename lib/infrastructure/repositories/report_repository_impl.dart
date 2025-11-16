@@ -1,4 +1,5 @@
 import 'package:weatherapi_gse/domain/domain.dart';
+import 'package:weatherapi_gse/domain/entities/entities.dart';
 
 
 

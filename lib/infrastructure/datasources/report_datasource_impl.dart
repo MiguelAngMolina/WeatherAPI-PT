@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:weatherapi_gse/config/constants/environment.dart';
 import 'package:weatherapi_gse/domain/domain.dart';
+import 'package:weatherapi_gse/domain/entities/entities.dart';
 import 'package:weatherapi_gse/infrastructure/mappers/report_mapper.dart';
 import 'package:weatherapi_gse/infrastructure/models/reports_response.dart';
 

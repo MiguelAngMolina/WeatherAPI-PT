@@ -11,9 +11,10 @@ class DailyDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
+        
         elevation: 6,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        shadowColor: Colors.grey,
+        shadowColor: Colors.black,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
           child: Row(
