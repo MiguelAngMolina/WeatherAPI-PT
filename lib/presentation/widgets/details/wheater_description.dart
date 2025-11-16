@@ -13,7 +13,7 @@ class WeatherDescriptionCard extends StatelessWidget {
       return Container(
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.blue.withValues(alpha: 0.1),
+          color: Colors.green.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
