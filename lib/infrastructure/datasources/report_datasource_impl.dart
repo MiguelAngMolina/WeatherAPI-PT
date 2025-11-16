@@ -33,7 +33,7 @@ class ReportDatasourceImpl extends ReportDatasource{
       final Report report = ReportMapper.reportResponsetoEntity(reportResponse);
       return report;
     } catch (e) {
-      throw ApiException('Error inesperado: $e');
+      throw ApiException('Error inesperado, vuelve atrás y vuelve a intentarlo :D : $e');
     }
   }
 }
