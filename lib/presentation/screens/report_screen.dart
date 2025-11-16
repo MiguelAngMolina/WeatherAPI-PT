@@ -26,6 +26,7 @@ class ReportScreen extends ConsumerWidget {
       ),
 
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green.shade200 ,
         child: Icon(Icons.arrow_back_outlined),
         onPressed: (){
           context.pop();

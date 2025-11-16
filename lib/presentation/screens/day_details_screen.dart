@@ -44,6 +44,7 @@ class DayDetailsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         
         onPressed: () => context.pop(),
+        backgroundColor: Colors.green.shade200 ,
         child: const Icon(Icons.arrow_back),
       ),
     );
