@@ -24,64 +24,63 @@ class CurrentWeather extends StatelessWidget {
           Text(
             "Temperatura promedio",
             style: theme.textTheme.bodyMedium?.copyWith(
-               fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold,
               color: Colors.black54,
               fontSize: 15,
             ),
           ),
-
           const SizedBox(height: 10),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-
             children: [
-                Column(
-                 children: [
-                   Text(
-                    "${dia.tempmax}°C",
-                    style: const TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w200,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    "Temperatura Máxima",
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 12,
-                    ),
-                  )
-                ],
+              _TempItem(
+                value: dia.tempmax,
+                label: "Temperatura Máxima",
               ),
-              Column(
-                 children: [
-                   Text(
-                    "${dia.tempmin}°C",
-                    style: const TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w200,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    "Temperatura Mínima",
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 12,
-                    ),
-                  )
-                ],
+              _TempItem(
+                value: dia.tempmin,
+                label: "Temperatura Mínima",
               ),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 }
 
-//todo: organizar esto
+class _TempItem extends StatelessWidget {
+  final double value;
+  final String label;
+
+  const _TempItem({
+    required this.value,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Column(
+      children: [
+        Text(
+          "$value°C",
+          style: const TextStyle(
+            fontSize: 35,
+            fontWeight: FontWeight.w200,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: Colors.black54,
+            fontSize: 12,
+          ),
+        ),
+      ],
+    );
+  }
+}
