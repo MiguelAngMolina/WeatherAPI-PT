@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/domain/entities/entities.dart';
 import 'package:weatherapi_gse/presentation/providers/report_provider.dart';
 import 'package:weatherapi_gse/presentation/widgets/widgets.dart';
@@ -23,6 +24,12 @@ class ReportScreen extends ConsumerWidget {
           ),
         ),
       ),
+
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back_outlined),
+        onPressed: (){
+          context.pop();
+          }),
     );
   }
 }
@@ -50,11 +57,29 @@ class WeatherBody extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                   ),
             ),
-            const SizedBox(height: 16),
-            ...report.days.map((dia) => Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: DailyDetails(dia: dia),
-                )),
+              const SizedBox(height: 16),
+
+              ...report.days.asMap().entries.map((entry) {
+              final index = entry.key;
+              final dia = entry.value;
+
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(16),
+                  onTap: () {
+                    context.push(
+                      '/detalles/${index+1}',
+                      extra: {
+                        'dia': dia,
+                        'location': report.location,
+                      },
+                    );
+                  },
+                  child: DailyDetails(dia: dia,),
+                ),
+              );
+            }),
           ],
       ),
     );

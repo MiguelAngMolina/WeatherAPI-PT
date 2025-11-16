@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapi_gse/domain/domain.dart';
+import 'package:weatherapi_gse/config/helpers/dateformart.dart';
+import 'package:weatherapi_gse/domain/entities/entities.dart';
 
 class LocationHeader extends StatelessWidget {
   final Report report;
@@ -46,6 +47,53 @@ class LocationHeader extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+
+class LocationAndDate extends StatelessWidget {
+  final String location;
+  final DateTime date;
+
+  const LocationAndDate({
+    super.key,
+    required this.location,
+    required this.date,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          location,
+          style: theme.textTheme.headlineSmall?.copyWith(
+            fontWeight: FontWeight.bold,
+            fontSize: 28,
+            color: theme.colorScheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 8),
+
+        Row(
+          children: [
+            Icon(Icons.calendar_month,
+                size: 20, color: theme.colorScheme.primary),
+            const SizedBox(width: 6),
+            Text(
+              HumanFormats.shortDate(date),
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }

@@ -1,2 +1,6 @@
-export 'report/location_header.dart';
+export 'report/location_headers.dart';
 export 'report/daily_details.dart';
+export 'details/current_weather.dart';
+export 'details/sun_card.dart';
+export 'details/wheater_description.dart';
+export 'details/wheater_details_card.dart';

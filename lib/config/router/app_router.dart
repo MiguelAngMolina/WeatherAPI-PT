@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:weatherapi_gse/presentation/screens/day_details_screen.dart';
 import 'package:weatherapi_gse/presentation/screens/home.dart';
 import 'package:weatherapi_gse/presentation/screens/report_screen.dart';
 import 'package:weatherapi_gse/presentation/screens/splash_screen.dart';
@@ -22,5 +23,17 @@ final GoRouter router =  GoRouter(
       builder: (context, state) => ReportScreen(),
       ),
 
+    GoRoute(
+      path: '/detalles/:index',
+      builder: (context, state) {
+        final data = state.extra as Map<String, dynamic>;
+        final day = data['dia'];           
+        final location = data['location']; 
+        return DayDetailsScreen(
+          dia: day,
+          location: location,
+        );
+      },
+    ),
 
   ]);
