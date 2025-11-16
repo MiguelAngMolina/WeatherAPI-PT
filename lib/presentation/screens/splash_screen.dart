@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:weatherapi_gse/config/flavors/flavors.dart';
 import 'package:weatherapi_gse/presentation/providers/report_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -44,10 +45,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                 width: MediaQuery.of(context).size.width ,
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Image.network(
-                    'https://static.vecteezy.com/system/resources/previews/006/411/255/non_2x/cloudy-weather-with-rainfall-rgb-color-icon-accurate-report-weather-forecast-overcast-sky-condition-isolated-illustration-simple-filled-line-drawing-editable-stroke-arial-font-used-vector.jpg',
-                    fit: BoxFit.contain,
-                  ),
+                  child: Icon(
+                    Icons.cloudy_snowing,
+                    color:Theme.of(context).colorScheme.primary,
+                    size: 190,
+                  )
                 ),
               ),
 
@@ -55,7 +57,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
               /// Título
               Text(
-                "Weather App",
+                F.title,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,

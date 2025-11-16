@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:weatherapi_gse/config/helpers/google_geocoding.dart';
 import 'package:weatherapi_gse/presentation/providers/location/user_location_provider.dart';
@@ -144,13 +143,6 @@ void _searchAddress() async {
                 ref: ref),  
           ]
         ),
-        
-        floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green.shade200 ,
-        child: Icon(Icons.arrow_back_outlined),
-        onPressed: (){
-          context.pop();
-          }),
       ),
 
     );
