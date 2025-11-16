@@ -45,6 +45,14 @@ class Home extends ConsumerWidget {
               },
               child: const Text('Nueva '),
             ),
+
+
+            ElevatedButton(
+              onPressed: () {
+                context.push('/map');
+              },
+              child: const Text('Map'),
+            ),
               ]
             ),
             
