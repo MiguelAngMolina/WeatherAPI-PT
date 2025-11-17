@@ -69,7 +69,7 @@ class Home extends StatelessWidget {
               const SizedBox(height: 50),
 
               Text(
-                "App diseñada por Miguel Ángel Molina",
+                "App diseñada por Miguel Ángel Molina para GSE",
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodySmall?.copyWith(
                   fontSize: 14,

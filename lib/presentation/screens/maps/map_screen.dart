@@ -79,7 +79,7 @@ void _searchAddress() async {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Ingresa una ubicación y dale buscar",
+            "Busca la ubicación que desees",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           automaticallyImplyLeading: false,
