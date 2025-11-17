@@ -38,7 +38,7 @@ class ReportDatasourceImpl extends ReportDatasource{
   }
   
   @override
-  Future<List<Event>> getEvents(String location, DateTime date1, DateTime date2)  async {
+  Future<List<Event>> getEvents(String location, String date1, String date2)  async {
     try{
     final response = await dio.get(
       '$location/$date1/$date2',

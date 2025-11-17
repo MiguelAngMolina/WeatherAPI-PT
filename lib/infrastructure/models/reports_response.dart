@@ -138,7 +138,7 @@ class DayResponse {
         preciptype: json["preciptype"] == null ? [] : List<String>.from(json["preciptype"].map((x) => x)),
         snow: json["snow"],
         snowdepth: json["snowdepth"]?.toDouble(),
-        windgust: json["windgust"]?.toDouble(),
+        windgust: json["windgust"]?.toDouble() ?? 0.0,
         windspeed: json["windspeed"]?.toDouble(),
         winddir: json["winddir"]?.toDouble(),
         pressure: json["pressure"]?.toDouble(),

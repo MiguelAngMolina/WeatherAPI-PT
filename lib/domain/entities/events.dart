@@ -21,6 +21,7 @@ class Event {
     @override
   String toString() {
    return '''
+    {
     datetime: $datetime,
     type: $type,
     latitude: $latitude,
@@ -28,6 +29,7 @@ class Event {
     distance: $distance,
     desc: $desc,
     size: $size,
+    }
     ''';
   }
 
