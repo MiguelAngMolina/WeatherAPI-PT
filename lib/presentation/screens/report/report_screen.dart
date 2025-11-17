@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/domain/entities/entities.dart';
 import 'package:weatherapi_gse/presentation/providers/report/report_provider.dart';
+import 'package:weatherapi_gse/presentation/screens/shared/no_data_screen.dart';
 import 'package:weatherapi_gse/presentation/widgets/widgets.dart';
 
 
@@ -19,7 +20,7 @@ class ReportScreen extends ConsumerWidget {
           padding: const EdgeInsets.all(16),
           child: reportAsync.when(
             data: (report) => report == null 
-            ? Text('No hay Datos')
+            ? NoDataScreen()
             : WeatherBody(report: report),
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (err, stack) => Text('Error: $err'),
