@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:weatherapi_gse/domain/entities/entities.dart';
-import 'package:weatherapi_gse/presentation/providers/report_repository_provider.dart';
+import 'package:weatherapi_gse/presentation/providers/report/report_repository_provider.dart';
 
 part 'event_provider.g.dart';
 
