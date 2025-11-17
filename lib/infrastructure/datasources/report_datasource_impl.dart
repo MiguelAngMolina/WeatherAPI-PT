@@ -24,7 +24,7 @@ class ReportDatasourceImpl extends ReportDatasource {
   Future<Report> getReport(String location) async {
   try{
     final response = await dio.get(
-      '$location/last2days',
+      '$location/last5days',
       queryParameters: {
         "key": Environment.wheaterApiKey,
         "include": "days",
