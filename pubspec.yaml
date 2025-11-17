@@ -33,6 +33,9 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
+  fluttertest: ^0.0.1
+  http_mock_adapter: ^0.6.1
+  mockito: ^5.5.0
   riverpod_generator: ^3.0.3
   riverpod_lint: ^3.0.3
 

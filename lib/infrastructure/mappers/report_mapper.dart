@@ -4,7 +4,7 @@ import 'package:weatherapi_gse/infrastructure/models/reports_response.dart';
 
 class ReportMapper {
   static Report reportResponsetoEntity(ReportResponse report) => Report(
-    location: report.address,
+    location: report.resolvedAddress,
     latitude: report.latitude,
     longitude: report.longitude,
     days: report.days

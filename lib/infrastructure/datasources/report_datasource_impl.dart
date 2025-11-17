@@ -6,13 +6,19 @@ import 'package:weatherapi_gse/domain/entities/entities.dart';
 import 'package:weatherapi_gse/infrastructure/mappers/report_mapper.dart';
 import 'package:weatherapi_gse/infrastructure/models/reports_response.dart';
 
-class ReportDatasourceImpl extends ReportDatasource{
-  
-  final dio = Dio(
-    BaseOptions(
-      baseUrl: 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
-    )
-  );
+class ReportDatasourceImpl extends ReportDatasource {
+  final Dio dio;
+
+  ReportDatasourceImpl({Dio? dio})
+      : dio = dio ??
+            Dio(
+              BaseOptions(
+                baseUrl:
+                    'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
+              ),
+            );
+
+
   
   @override
   Future<Report> getReport(String location) async {

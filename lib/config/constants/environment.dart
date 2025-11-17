@@ -1,8 +1,10 @@
-
-
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Environment {
-  static String wheaterApiKey = dotenv.env['THE_WEATHERAPI_KEY'] ?? 'No hay api key';
-  
+  static String wheaterApiKey = '';
+
+  static Future<void> init() async {
+    await dotenv.load();
+    wheaterApiKey = dotenv.env['WEATHER_API_KEY'] ?? '';
+  }
 }
