@@ -40,14 +40,19 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
               /// Imagen principal
               SizedBox(
-                width: MediaQuery.of(context).size.width ,
+                width: MediaQuery.of(context).size.width,
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Icon(
-                    Icons.cloudy_snowing,
-                    color:Theme.of(context).colorScheme.primary,
-                    size: 190,
-                  )
+                  child: F.isDev
+                      ? Icon(
+                          Icons.cloudy_snowing,
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 190,
+                        )
+                      : Image.asset(
+                          'assets/prod/splash_image.svg',
+                          fit: BoxFit.contain,
+                        ),
                 ),
               ),
 

@@ -66,11 +66,8 @@ class DailyDetails extends StatelessWidget {
 
               const SizedBox(width: 16),
 
-              Icon(
-                WeatherIconsMapper.getIconWeather(dia.icon),
-                size: 48,
-                color: Colors.green.shade900,
-              ),
+              WeatherIconsMapper.getWeatherIcon(dia.icon)
+
             ],
           ),
         ),
@@ -155,11 +152,8 @@ class EventDetails extends StatelessWidget {
 
               const SizedBox(width: 16),
 
-              Icon(
-                WeatherIconsMapper.getIconEvent(event.type),
-                size: 48,
-                color: Colors.green.shade900,
-              ),
+              WeatherIconsMapper.getEventIcon(event.type)
+
             ],
           ),
         ),

@@ -16,5 +16,6 @@ class F {
         return 'Weather App';
     }
   }
-
+  static bool get isDev => appFlavor == Flavor.dev;
+  static bool get isProd => appFlavor == Flavor.prod;
 }

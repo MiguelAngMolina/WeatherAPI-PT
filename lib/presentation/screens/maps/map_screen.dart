@@ -146,6 +146,7 @@ void _searchAddress() async {
                 bottom: 30,
                 right: 20,
                 child: FloatingActionButton.extended(
+                  heroTag: "fab_options",
                   onPressed: () => _openOptionsPopup(context, ref),
                   backgroundColor: Colors.green.shade600,
                   label: const Text("Ver reporte / Eventos"),
@@ -157,10 +158,10 @@ void _searchAddress() async {
                 bottom: 30,
                 left: 20,
                 child:  FloatingActionButton(
+                heroTag: "fab_back", 
                   onPressed: () {
                     context.pop();
                     ref.invalidate(userLocationProvider);
-
                   },
                   backgroundColor: Colors.green.shade200 ,
                   child: const Icon(Icons.arrow_back),
