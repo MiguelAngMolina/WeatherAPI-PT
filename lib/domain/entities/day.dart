@@ -1,3 +1,5 @@
+import 'package:weatherapi_gse/domain/entities/entities.dart';
+
 class Day {
   final DateTime datetime;
   final double tempmax;
@@ -16,7 +18,7 @@ class Day {
   final String conditions;
   final String description;
   final String icon;
-
+  final List<Event>? events;
 
   Day({
     required this.datetime,
@@ -35,7 +37,8 @@ class Day {
     required this.sunset,
     required this.conditions,
     required this.description,
-    required this.icon
+    required this.icon,
+    this.events
   });
 
 
@@ -59,7 +62,9 @@ class Day {
         sunset: $sunset,
         conditions: $conditions,
         description: $description,
-        icon: $icon
+        icon: $icon,
+        events: ${events.toString()})
+
   ''';
   }
 }

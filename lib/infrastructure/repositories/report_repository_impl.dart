@@ -12,5 +12,10 @@ class ReportRepositoryImpl extends ReportRepository{
   Future<Report> getReport(String location) async {
     return datasource.getReport(location);
   }
+  
+  @override
+  Future<List<Event>> getEvents(String location, DateTime date1, DateTime date2) {
+    return datasource.getEvents(location, date1, date2);
+  }
 
 }

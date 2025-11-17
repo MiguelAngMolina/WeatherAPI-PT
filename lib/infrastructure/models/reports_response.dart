@@ -1,5 +1,4 @@
 // code from QuickType.io
-
 class ReportResponse {
     final int queryCost;
     final double latitude;
@@ -80,6 +79,8 @@ class DayResponse {
     final String description;
     final String icon;
     final String source;
+    final List<EventResponse>? events;
+
 
     DayResponse({
         required this.datetime,
@@ -117,6 +118,7 @@ class DayResponse {
         required this.description,
         required this.icon,
         required this.source,
+        this.events
     });
 
     factory DayResponse.fromJson(Map<String, dynamic> json) => DayResponse(
@@ -157,6 +159,8 @@ class DayResponse {
         description: json["description"],
         icon: json["icon"],
         source: json["source"],
+        events: json["events"] == null ? [] : List<EventResponse>.from(json["events"]!.map((x) => EventResponse.fromJson(x))),
+
     );
 
     Map<String, dynamic> toJson() => {
@@ -195,5 +199,50 @@ class DayResponse {
         "description": description,
         "icon": icon,
         "source": source,
+        "events": events == null ? [] : List<dynamic>.from(events!.map((x) => x.toJson())),
+    };
+}
+
+class EventResponse {
+    final DateTime datetime;
+    final int datetimeEpoch;
+    final String type;
+    final double latitude;
+    final double longitude;
+    final double distance;
+    final String desc;
+    final double size;
+
+    EventResponse({
+        required this.datetime,
+        required this.datetimeEpoch,
+        required this.type,
+        required this.latitude,
+        required this.longitude,
+        required this.distance,
+        required this.desc,
+        required this.size,
+    });
+
+    factory EventResponse.fromJson(Map<String, dynamic> json) => EventResponse(
+        datetime: DateTime.parse(json["datetime"]),
+        datetimeEpoch: json["datetimeEpoch"],
+        type: json["type"],
+        latitude: json["latitude"]?.toDouble(),
+        longitude: json["longitude"]?.toDouble(),
+        distance: json["distance"]?.toDouble(),
+        desc: json["desc"],
+        size: json["size"]?.toDouble(),
+    );
+
+    Map<String, dynamic> toJson() => {
+        "datetime": datetime.toIso8601String(),
+        "datetimeEpoch": datetimeEpoch,
+        "type":type,
+        "latitude": latitude,
+        "longitude": longitude,
+        "distance": distance,
+        "desc": desc,
+        "size": size,
     };
 }
