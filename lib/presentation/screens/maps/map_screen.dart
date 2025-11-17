@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
@@ -46,31 +47,40 @@ void _searchAddress() async {
   final address = searchController.text.trim();
   if (address.isEmpty) return;
 
-  final result = await geocodingService.searchAddress(address);
-  if (result == null) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Dirección no encontrada")),
+  try {
+    final result = await geocodingService.searchAddress(address);
+
+    if (result == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Dirección no encontrada")),
+      );
+      return;
+    }
+
+    ref.read(userLocationProvider.notifier)
+        .setLocation(result.latitude, result.longitude);
+
+    mapController?.animateCamera(
+      CameraUpdate.newLatLng(
+        LatLng(result.latitude, result.longitude),
+      ),
     );
-    return;
-  }
 
-  ref.read(userLocationProvider.notifier)
-      .setLocation(result.latitude, result.longitude);
-
-  mapController?.animateCamera(
-    CameraUpdate.newLatLng(
-      LatLng(result.latitude, result.longitude),
-    ),
-  );
-  setState(() {
-    showWeatherButton = false;
-  });
-  Future.delayed(const Duration(seconds: 1), () {
     setState(() {
-      showWeatherButton = true;
+      showWeatherButton = false;
     });
-  });
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        showWeatherButton = true;
+      });
+    });
+  }catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Error inesperado: $e")),
+    );
+  }
 }
+
   @override
   Widget build(BuildContext context) {
     final currentLocation = ref.watch(userLocationProvider);

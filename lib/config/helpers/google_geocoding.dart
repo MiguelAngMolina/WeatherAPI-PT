@@ -21,7 +21,7 @@ class GeocodingService {
       }
       return null;
     } catch (e){
-      throw ApiException('Error inesperado, vuelve atrás y vuelve a intentarlo :D : $e');
+      throw ApiException('Es posible que no poseas conexión a internet. Revisa e intenta de nuevo');
     }
   }
 }
