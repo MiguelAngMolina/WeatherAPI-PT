@@ -29,7 +29,7 @@ class DayDetailsScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 CurrentWeather(dia: dia),
                 const SizedBox(height: 30),
-                WeatherDescriptionCard(description: dia.description),
+                DescriptionCard(description: dia.description),
                 const SizedBox(height: 30,),
                 WeatherDetailsCard(dia: dia),
                 const SizedBox(height: 30),

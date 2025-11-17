@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/domain/entities/entities.dart';
-import 'package:weatherapi_gse/presentation/providers/report_provider.dart';
+import 'package:weatherapi_gse/presentation/providers/report/report_provider.dart';
+import 'package:weatherapi_gse/presentation/screens/shared/no_data_screen.dart';
 import 'package:weatherapi_gse/presentation/widgets/widgets.dart';
 
 
@@ -19,7 +20,7 @@ class ReportScreen extends ConsumerWidget {
           padding: const EdgeInsets.all(16),
           child: reportAsync.when(
             data: (report) => report == null 
-            ? Text('No hay Datos')
+            ? NoDataScreen()
             : WeatherBody(report: report),
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (err, stack) => Text('Error: $err'),
@@ -52,7 +53,6 @@ class WeatherBody extends StatelessWidget {
         children: [
             LocationHeader(report: report),
             const SizedBox(height: 16),
-             // Título del pronóstico
             Text(
               "Pronóstico de los últimos ${report.days.length} días",
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -72,7 +72,7 @@ class WeatherBody extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   onTap: () {
                     context.push(
-                      '/detalles/${index+1}',
+                      '/detalles_day/${index+1}',
                       extra: {
                         'dia': dia,
                         'location': report.location,

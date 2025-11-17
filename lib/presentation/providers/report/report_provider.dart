@@ -19,7 +19,6 @@ class ReportState extends _$ReportState {
 
     try{
     final report = await reportRepo.getReport(location);
-        print('Busqueda de la $location');
      state = AsyncValue.data(report);
 
     } catch(e, st){

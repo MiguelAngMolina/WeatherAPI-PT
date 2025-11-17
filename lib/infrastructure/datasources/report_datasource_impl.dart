@@ -36,4 +36,28 @@ class ReportDatasourceImpl extends ReportDatasource{
       throw ApiException('Error inesperado, vuelve atrás y vuelve a intentarlo :D : $e');
     }
   }
+  
+  @override
+  Future<List<Event>> getEvents(String location, String date1, String date2)  async {
+    try{
+    final response = await dio.get(
+      '$location/$date1/$date2',
+      queryParameters: {
+        "key": Environment.wheaterApiKey,
+        "lang": "es",
+        "include": "events",
+        "unitGroup": "metric",
+        "elements": "remove:stations"
+      },
+      );
+      final reportResponse = ReportResponse.fromJson(response.data);
+      final Report report = ReportMapper.reportResponsetoEntity(reportResponse);
+      final events = report.days.expand<Event>((d) => d.events ?? []).toList();
+      return events;
+
+
+    } catch (e) {
+      throw ApiException('Error inesperado, vuelve atrás y vuelve a intentarlo :D : $e');
+    }
+  }
 }

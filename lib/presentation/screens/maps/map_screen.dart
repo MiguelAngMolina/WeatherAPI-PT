@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:weatherapi_gse/config/helpers/google_geocoding.dart';
 import 'package:weatherapi_gse/presentation/providers/location/user_location_provider.dart';
-import 'package:weatherapi_gse/presentation/widgets/map/show_weather_bttn.dart';
+import 'package:weatherapi_gse/presentation/widgets/map/show_report_or_event_buttons.dart';
 
 class MapScreen extends ConsumerStatefulWidget {
   const MapScreen({super.key});
@@ -18,7 +18,6 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   final geocodingService = GeocodingService();
 
   bool showWeatherButton = false;
-
 
 @override
   void initState() {
@@ -41,7 +40,6 @@ void _loadCurrentLocation() async {
   final pos = await Geolocator.getCurrentPosition();
   ref.read(userLocationProvider.notifier).setLocation(pos.latitude, pos.longitude);
 }
-
 
 void _searchAddress() async {
   final address = searchController.text.trim();
@@ -72,8 +70,6 @@ void _searchAddress() async {
     });
   });
 }
-
-
   @override
   Widget build(BuildContext context) {
     final currentLocation = ref.watch(userLocationProvider);
@@ -82,7 +78,7 @@ void _searchAddress() async {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Ingresa una ubicación",
+            "Ingresa una ubicación y dale buscar",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           automaticallyImplyLeading: false,
@@ -135,16 +131,52 @@ void _searchAddress() async {
               ),
             ),
             if (showWeatherButton)
-              ShowWeatherReportButton(
-                showWeatherButton: showWeatherButton, 
-                searchController: searchController, 
-                ref: ref),  
-          ]
+              Positioned(
+                bottom: 30,
+                right: 20,
+                child: FloatingActionButton.extended(
+                  onPressed: () => _openOptionsPopup(context, ref),
+                  backgroundColor: Colors.green.shade600,
+                  label: const Text("Ver reporte / Eventos"),
+                  icon: const Icon(Icons.visibility),
+                ),
+              ),
+          ],
         ),
       ),
+    );
+  }
 
+  void _openOptionsPopup(BuildContext context, WidgetRef ref) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                "Selecciona una opción",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20),
+              WeatherEventsButton(
+                locationName: searchController.text.trim(),
+                ref: ref
+              ),
+              SizedBox(height: 15,),
+              WeatherReportButton(
+                ref: ref,
+                locationName: searchController.text.trim(),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
-
-

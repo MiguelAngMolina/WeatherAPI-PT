@@ -1,6 +1,7 @@
 import 'package:weatherapi_gse/domain/entities/entities.dart';
 import 'package:weatherapi_gse/infrastructure/models/reports_response.dart';
 
+
 class ReportMapper {
   static Report reportResponsetoEntity(ReportResponse report) => Report(
     location: report.address,
@@ -24,7 +25,19 @@ class ReportMapper {
         sunset: e.sunset,
         conditions: e.conditions,
         description: e.description,
-        icon: e.icon
+        icon: e.icon,
+        events: e.events
+          ?.map((event) => Event(
+            location: report.address,
+            datetime: event.datetime, 
+            type: event.type, 
+            latitude: event.latitude, 
+            reportlat: report.latitude,
+            longitude: event.longitude, 
+            reportlong: report.longitude,
+            distance: event.distance, 
+            desc: event.desc, 
+            )).toList()
       )).toList()
   );
 }

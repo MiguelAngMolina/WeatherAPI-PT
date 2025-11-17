@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class WeatherDescriptionCard extends StatelessWidget {
+class DescriptionCard extends StatelessWidget {
     final String description;
 
-    const WeatherDescriptionCard({
+    const DescriptionCard({
       super.key,
       required this.description,
     });
