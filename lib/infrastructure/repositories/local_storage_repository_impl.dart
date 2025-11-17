@@ -10,7 +10,7 @@ class LocalStorageRepositoryImpl extends LocalStorageRepository{
 
 
   @override
-  Future<void> isFavoriteEvent(Event event) {
+  Future<bool> isFavoriteEvent(Event event) {
     return datasource.isFavoriteEvent(event);
   }
 
