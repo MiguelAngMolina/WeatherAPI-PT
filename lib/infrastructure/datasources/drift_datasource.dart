@@ -22,8 +22,28 @@ class DriftDatasource extends LocalStorageDatasource{
   }
 
   @override
-  Future<List<Event>> loadFavoriteEvents({int limit = 10, int offset = 0}) {
-    throw UnimplementedError();
+  Future<List<Event>> loadFavoriteEvents({int limit = 10, int offset = 0}) async {
+    final query = database.select(database.favoriteEvents)
+      ..limit(limit, offset: offset);
+
+
+    final favoriteEventRows = await query.get();
+
+    final events = favoriteEventRows.map(
+      (row) => Event(
+        location: row.location, 
+        datetime: row.datetime, 
+        type: row.type, 
+        latitude: row.latitude, 
+        reportlat: row.reportlat, 
+        longitude: row.longitude, 
+        reportlong: row.reportlong, 
+        distance: row.distance, 
+        desc: row.desc
+      )
+    ).toList();
+
+    return events;
   }
 
   @override
