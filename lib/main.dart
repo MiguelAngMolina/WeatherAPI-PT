@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weatherapi_gse/config/database/database.dart';
 
 import 'config/flavors/app.dart';
 import 'config/flavors/flavors.dart';
@@ -11,6 +12,17 @@ import 'config/flavors/flavors.dart';
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
+
+  // await db.into(db.favoriteEvents).insert(
+  //   FavoriteEventsCompanion.insert(
+  //     location: 'Bucaramanga papi', 
+  //     datetime: DateTime.now(), 
+  //     type: 'Granizo', 
+  //     desc: 'Mucho frio papi'
+  //   )
+  // );
+
+  // final deleteQuery = db.Query');
 
   await dotenv.load(fileName: ".env");
   
