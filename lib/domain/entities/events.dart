@@ -1,4 +1,5 @@
 class Event {
+    final String location;
     final DateTime datetime;
     final String type;
     final double latitude;
@@ -8,6 +9,7 @@ class Event {
     final double size;
 
     Event({
+        required this.location,
         required this.datetime,
         required this.type,
         required this.latitude,
@@ -22,6 +24,7 @@ class Event {
   String toString() {
    return '''
     {
+    location:$location,
     datetime: $datetime,
     type: $type,
     latitude: $latitude,

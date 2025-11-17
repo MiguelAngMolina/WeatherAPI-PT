@@ -28,6 +28,7 @@ class ReportMapper {
         icon: e.icon,
         events: e.events
           ?.map((event) => Event(
+            location: report.address,
             datetime: event.datetime, 
             type: event.type, 
             latitude: event.latitude, 
