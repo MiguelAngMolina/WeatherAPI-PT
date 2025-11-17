@@ -15,15 +15,35 @@ class EventInformation extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Tipo de evento: ${EventLabels.label(event.type)}",
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Tipo de evento: ${EventLabels.label(event.type)}",
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+
+            
+            IconButton(
+              onPressed: () {
+                
+              },
+              icon: Icon(
+                Icons.favorite_border, 
+                // Icons.favorite,
+                color: Colors.redAccent,
+                size: 28,
+              ),
+            ),
+          ],
         ),
+
         const SizedBox(height: 16),
+
         Container(
           width: double.infinity,
           height: 200,
@@ -40,6 +60,7 @@ class EventInformation extends StatelessWidget {
         ),
       ],
     );
+
   }
 }
 

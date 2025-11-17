@@ -6,7 +6,6 @@ class Event {
     final double reportlat;
     final double longitude;
     final double reportlong;
-    
     final double distance;
     final String desc;
 

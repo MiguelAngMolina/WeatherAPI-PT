@@ -41,7 +41,7 @@ final class ReportStateProvider
   }
 }
 
-String _$reportStateHash() => r'f7f9304b3bbae01fd0003679034966b03e5a05b4';
+String _$reportStateHash() => r'861f4bb352d5fda5f8f3b8e6e0541c7ea11cc601';
 
 abstract class _$ReportState extends $Notifier<AsyncValue<Report?>> {
   AsyncValue<Report?> build();
