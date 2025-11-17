@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weatherapi_gse/config/helpers/dateformart.dart';
+import 'package:weatherapi_gse/config/helpers/event_translation_helper.dart';
 import 'package:weatherapi_gse/config/helpers/icons_helper.dart';
 import 'package:weatherapi_gse/domain/entities/entities.dart';
 
@@ -227,19 +228,3 @@ class EventColors {
   }
 }
 
-class EventLabels {
-  static String label(String type) {
-    switch (type) {
-      case 'hail':
-        return 'Granizo';
-      case 'earthquake':
-        return 'Terremoto';
-      case 'tornado':
-        return 'Tornado';
-      case 'wind':
-        return 'Daños por viento';
-      default:
-        return 'Evento';
-    }
-  }
-}

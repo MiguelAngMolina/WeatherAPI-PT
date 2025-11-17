@@ -63,21 +63,20 @@ class WeatherBody extends StatelessWidget {
               const SizedBox(height: 16),
 
               ...events.reversed.toList().asMap().entries.map((entry) {
-              // final index = entry.key;
+              final index = entry.key;
               final evento = entry.value;
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(16),
-                  // onTap: () {
-                  //   context.push(
-                  //     '/detalles/${index+1}',
-                  //     extra: {
-                  //       'dia': dia,
-                  //       'location': report.location,
-                  //     },
-                  //   );
-                  // },
+                  onTap: () {
+                    context.push(
+                      '/detalles_event/${index+1}',
+                      extra: {
+                        'event': evento,
+                      },
+                    );
+                  },
                   child: EventDetails(event: evento ,),
                   ));
               }

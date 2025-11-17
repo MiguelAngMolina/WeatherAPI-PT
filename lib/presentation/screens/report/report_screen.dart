@@ -72,7 +72,7 @@ class WeatherBody extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   onTap: () {
                     context.push(
-                      '/detalles/${index+1}',
+                      '/detalles_day/${index+1}',
                       extra: {
                         'dia': dia,
                         'location': report.location,

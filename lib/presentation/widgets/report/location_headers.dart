@@ -87,7 +87,7 @@ class LocationAndDate extends StatelessWidget {
                   size: 20, color: theme.colorScheme.primary),
               const SizedBox(width: 6),
               Text(
-                HumanFormats.shortDate(date!),
+                HumanFormats.autoFormat(date!),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,

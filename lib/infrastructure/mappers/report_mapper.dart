@@ -32,7 +32,9 @@ class ReportMapper {
             datetime: event.datetime, 
             type: event.type, 
             latitude: event.latitude, 
+            reportlat: report.latitude,
             longitude: event.longitude, 
+            reportlong: report.longitude,
             distance: event.distance, 
             desc: event.desc, 
             )).toList()
