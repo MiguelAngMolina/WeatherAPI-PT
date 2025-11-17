@@ -34,7 +34,7 @@ class _FavoriteEventsState extends ConsumerState<FavoriteEvents> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 50, 16,10),
             child: Text(
-              'Eventos favoritos',
+              'Eventos favoritos (Offline)',
               style: theme.textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 28,
