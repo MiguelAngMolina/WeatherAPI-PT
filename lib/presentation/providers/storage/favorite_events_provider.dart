@@ -22,6 +22,26 @@ final favoriteEventsProvider = StateNotifierProvider((ref){
   StorageMoviesNotifier({required this.localStorageRepository}):super({});
 
 
+  Future<List<Event>> loadNextPage()async {
+    final events = await localStorageRepository.loadFavoriteEvents(
+      limit: 10,
+      offset: page * 10
+    );
+    page++;
+
+    final tempEvents = <String, Event>{};
+
+    for (final event in events){
+    final key = "${event.location}-${event.datetime}-${event.type}";
+    // state = {...state, key: event };
+    tempEvents[key] = event;
+    }
+
+      state = {...state, ...tempEvents};
+    return events;
+  }
+
+
   Future<void> toggleFavoriteEvent(Event event) async {
 
     final isFavorite = await localStorageRepository.isFavoriteEvent(event);
