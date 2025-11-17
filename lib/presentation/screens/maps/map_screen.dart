@@ -142,11 +142,16 @@ void _searchAddress() async {
                   icon: const Icon(Icons.visibility),
                 ),
               ),
+              if(currentLocation != null)
               Positioned(
                 bottom: 30,
                 left: 20,
                 child:  FloatingActionButton(
-                  onPressed: () => context.pop(),
+                  onPressed: () {
+                    context.pop();
+                    ref.invalidate(userLocationProvider);
+
+                  },
                   backgroundColor: Colors.green.shade200 ,
                   child: const Icon(Icons.arrow_back),
                 ),
