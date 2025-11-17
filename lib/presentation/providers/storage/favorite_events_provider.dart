@@ -15,10 +15,27 @@ final favoriteEventsProvider = StateNotifierProvider((ref){
 });
 
 
- class StorageMoviesNotifier extends StateNotifier<Map<int, Event>>{
+ class StorageMoviesNotifier extends StateNotifier<Map<String, Event>>{
   int page = 0;
   final  LocalStorageRepository localStorageRepository;
 
   StorageMoviesNotifier({required this.localStorageRepository}):super({});
+
+
+  Future<void> toggleFavoriteEvent(Event event) async {
+
+    final isFavorite = await localStorageRepository.isFavoriteEvent(event);
+    await localStorageRepository.toggleFavoriteEvent(event);
+
+    final key = "${event.location}-${event.datetime}-${event.type}";
+
+    if (isFavorite){
+      state.remove(key);
+      state = {...state};
+      return;
+    }
+
+    state = {...state, key: event};
+  }
   
  }
