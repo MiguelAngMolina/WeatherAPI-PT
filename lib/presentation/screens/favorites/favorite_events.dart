@@ -23,7 +23,17 @@ class _FavoriteEventsState extends ConsumerState<FavoriteEvents> {
   @override
   Widget build(BuildContext context) {
     final favoriteEvents = ref.watch(favoriteEventsProvider);
+    final isLoading = ref.watch(favoriteEventsProvider.notifier).isLoading;
+
     final theme = Theme.of(context);
+    
+      if (isLoading) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
 
     if(favoriteEvents.isEmpty) return NoDataScreen(isFavsScreen: true,);
 
