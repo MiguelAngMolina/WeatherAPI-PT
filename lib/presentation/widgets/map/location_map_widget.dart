@@ -71,7 +71,7 @@ class _MiniMapComparisonState extends State<MiniMapComparison> {
               position: widget.dayLocation,
               icon: BitmapDescriptor.defaultMarkerWithHue(
                   BitmapDescriptor.hueGreen),
-              infoWindow: const InfoWindow(title: "Ubicación seleccionada"),
+              infoWindow: const InfoWindow(title: "Ubicación de la búsqueda"),
             ),
             Marker(
               markerId: const MarkerId("eventLocation"),
