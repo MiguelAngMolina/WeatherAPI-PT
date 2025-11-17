@@ -35,7 +35,6 @@ class ReportMapper {
             longitude: event.longitude, 
             distance: event.distance, 
             desc: event.desc, 
-            size: event.size
             )).toList()
       )).toList()
   );

@@ -54,12 +54,12 @@ class LocationHeader extends StatelessWidget {
 
 class LocationAndDate extends StatelessWidget {
   final String location;
-  final DateTime date;
+  final DateTime? date;
 
   const LocationAndDate({
     super.key,
     required this.location,
-    required this.date,
+    this.date,
   });
 
   @override
@@ -77,22 +77,26 @@ class LocationAndDate extends StatelessWidget {
             color: theme.colorScheme.onSurface,
           ),
         ),
-        const SizedBox(height: 8),
 
-        Row(
-          children: [
-            Icon(Icons.calendar_month,
-                size: 20, color: theme.colorScheme.primary),
-            const SizedBox(width: 6),
-            Text(
-              HumanFormats.shortDate(date),
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+        ...(date != null
+        ? [
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Icon(Icons.calendar_month,
+                  size: 20, color: theme.colorScheme.primary),
+              const SizedBox(width: 6),
+              Text(
+                HumanFormats.shortDate(date!),
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-            ),
-          ],
-        )
+            ],
+          ),
+        ]
+        : [SizedBox.shrink()])
       ],
     );
   }

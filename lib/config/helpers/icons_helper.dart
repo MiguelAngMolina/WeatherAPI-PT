@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WeatherIconsMapper {
-  static IconData getIcon(String icon) {
+
+  static IconData getIconWeather(String icon) {
     switch (icon) {
       case "snow":
         return Icons.ac_unit;
@@ -34,4 +35,27 @@ class WeatherIconsMapper {
         return Icons.help_outline; 
     }
   }
+
+  static IconData getIconEvent(String event) {
+    switch (event) {
+
+      case "hail": 
+        return Icons.grain;  
+
+      case "earthquake":
+        return Icons.waves; 
+
+      case "tornado":
+        return Icons.cyclone; 
+
+      case "wind": 
+        return Icons.air; 
+
+      default:
+        return Icons.warning_amber_outlined; 
+
+    }
+  }
+
+
 }

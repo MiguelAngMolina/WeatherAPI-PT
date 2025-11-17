@@ -6,7 +6,6 @@ class Event {
     final double longitude;
     final double distance;
     final String desc;
-    final double size;
 
     Event({
         required this.location,
@@ -16,7 +15,6 @@ class Event {
         required this.longitude,
         required this.distance,
         required this.desc,
-        required this.size,
     });
 
 
@@ -31,7 +29,6 @@ class Event {
     longitude: $longitude,
     distance: $distance,
     desc: $desc,
-    size: $size,
     }
     ''';
   }
