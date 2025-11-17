@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/presentation/providers/storage/favorite_events_provider.dart';
+import 'package:weatherapi_gse/presentation/screens/shared/no_data_screen.dart';
 import 'package:weatherapi_gse/presentation/widgets/widgets.dart';
 
 class FavoriteEvents extends ConsumerStatefulWidget {
@@ -23,6 +24,8 @@ class _FavoriteEventsState extends ConsumerState<FavoriteEvents> {
   Widget build(BuildContext context) {
     final favoriteEvents = ref.watch(favoriteEventsProvider);
     final theme = Theme.of(context);
+
+    if(favoriteEvents.isEmpty) return NoDataScreen(isFavsScreen: true,);
 
     return Scaffold(
       body: Column(

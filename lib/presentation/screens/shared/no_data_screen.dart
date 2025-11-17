@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 
 class NoDataScreen extends StatelessWidget {
-  const NoDataScreen({super.key});
+  final bool? isFavsScreen;
+  const NoDataScreen({super.key, this.isFavsScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,18 @@ class NoDataScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Text(
+
+            ...(isFavsScreen == true
+            ? [Text(
+              "No tienes nigun evento guardado en favoritos aún.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey.shade600,
+              ),
+            ),
+            ] : [
+              Text(
               "Intenta una fecha diferente o ajusta tu búsqueda.",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -35,6 +47,7 @@ class NoDataScreen extends StatelessWidget {
                 color: Colors.grey.shade600,
               ),
             ),
+            ])
           ],
         ),
       ),
