@@ -225,7 +225,7 @@ class EventResponse {
     });
 
     factory EventResponse.fromJson(Map<String, dynamic> json) => EventResponse(
-        datetime: DateTime.parse(json["datetime"]),
+        datetime: DateTime.tryParse(json["datetime"] ?? '') ?? DateTime(1970),
         datetimeEpoch: json["datetimeEpoch"] ?? 0,
         type: json["type"] ?? '',
         latitude: json["latitude"]?.toDouble() ?? 0.0,
