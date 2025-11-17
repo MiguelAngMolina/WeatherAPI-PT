@@ -81,8 +81,9 @@ class DailyDetails extends StatelessWidget {
 
 class EventDetails extends StatelessWidget {
   final Event event;
+  final bool? showLocation; 
 
-  const EventDetails({super.key, required this.event});
+  const EventDetails({super.key, required this.event, this.showLocation = false});
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +100,19 @@ class EventDetails extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    
+                    ...(showLocation == true
+                    ? [
+                      Text(
+                      event.location,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                    ),
+
+                    ] : [SizedBox.shrink()]),
                     Text(
                       HumanFormats.shortDateTime(event.datetime),
                       style: const TextStyle(
