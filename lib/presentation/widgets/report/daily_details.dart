@@ -152,7 +152,9 @@ class EventDetails extends StatelessWidget {
 
               const SizedBox(width: 16),
 
-              WeatherIconsMapper.getEventIcon(event.type)
+              
+               WeatherIconsMapper.getEventIcon(event.type)
+              
 
             ],
           ),

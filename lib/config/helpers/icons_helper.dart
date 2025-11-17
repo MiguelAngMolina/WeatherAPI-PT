@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:weatherapi_gse/config/flavors/flavors.dart';
 
 class WeatherIconsMapper {
@@ -12,11 +13,11 @@ class WeatherIconsMapper {
       );
     } else {
       // prod: usamos assets
-      return Image.asset(
+      return SvgPicture.asset(
         'assets/prod/$icon.svg',
         width: size,
         height: size,
-        color: color,
+        fit: BoxFit.contain,
       );
     }
   }
@@ -29,11 +30,11 @@ class WeatherIconsMapper {
         color: color ?? Colors.green.shade900,
       );
     } else {
-      return Image.asset(
+      return SvgPicture.asset(
         'assets/prod/$event.svg',
         width: size,
         height: size,
-        color: color,
+        
       );
     }
   }

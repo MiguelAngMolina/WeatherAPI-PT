@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/config/flavors/flavors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -49,8 +51,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                           color: Theme.of(context).colorScheme.primary,
                           size: 190,
                         )
-                      : Image.asset(
-                          'assets/prod/splash_image.svg',
+                      : SvgPicture.asset(
+                          'assets/prod/partly-cloudy-day.svg',
                           fit: BoxFit.contain,
                         ),
                 ),

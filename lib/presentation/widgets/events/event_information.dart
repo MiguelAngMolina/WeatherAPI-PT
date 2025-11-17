@@ -13,7 +13,7 @@ class EventInformation extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final icon = WeatherIconsMapper.getIconEvent(event.type);
+    
     final isFavoriteFuture = ref.watch(isFavoriteEventProvider(event));
 
 
@@ -63,11 +63,7 @@ class EventInformation extends ConsumerWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           alignment: Alignment.center,
-          child: Icon(
-            icon,
-            size: 120,
-            color: Colors.green.shade900,
-          ),
+          child: WeatherIconsMapper.getEventIcon(event.type)
         ),
       ],
     );
