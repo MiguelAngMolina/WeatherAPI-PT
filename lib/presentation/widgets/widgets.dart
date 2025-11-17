@@ -9,6 +9,6 @@ export 'details/wheater_details_card.dart';
 
 
 export 'map/location_map_widget.dart';
-export 'map/show_weather_bttn.dart';
+export 'map/show_report_or_event_buttons.dart';
 
 export 'events/event_information.dart';

@@ -24,7 +24,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     await Future.wait([minimumDelay]);
 
     if (!mounted) return;
-    context.go('/events');
+    context.go('/map');
   }
 
   @override

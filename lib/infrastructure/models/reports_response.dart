@@ -232,7 +232,7 @@ class EventResponse {
         longitude: json["longitude"]?.toDouble(),
         distance: json["distance"]?.toDouble(),
         desc: json["desc"],
-        size: json["size"]?.toDouble(),
+        size: json["size"]?.toDouble() ?? 0.0,
     );
 
     Map<String, dynamic> toJson() => {
