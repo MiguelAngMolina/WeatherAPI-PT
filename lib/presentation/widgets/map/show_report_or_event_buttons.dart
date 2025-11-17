@@ -4,9 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/presentation/providers/event/event_provider.dart';
 import 'package:weatherapi_gse/presentation/providers/report/report_provider.dart';
 
-/// ------------------------------------------------
-/// Botón: Ver reporte del clima
-/// ------------------------------------------------
 class WeatherReportButton extends StatelessWidget {
   const WeatherReportButton({
     super.key,
@@ -31,9 +28,7 @@ class WeatherReportButton extends StatelessWidget {
   }
 }
 
-/// ------------------------------------------------
-/// Botón: Ver eventos (con datepicker)
-/// ------------------------------------------------
+
 class WeatherEventsButton extends StatelessWidget {
   const WeatherEventsButton({
     super.key,
@@ -62,9 +57,6 @@ class WeatherEventsButton extends StatelessWidget {
   }
 }
 
-/// ------------------------------------------------
-/// Botón base reutilizable para ambos
-/// ------------------------------------------------
 class _OptionButton extends StatelessWidget {
   const _OptionButton({
     required this.label,
@@ -98,9 +90,7 @@ class _OptionButton extends StatelessWidget {
   }
 }
 
-/// ------------------------------------------------
-/// Date range picker (solo pasado)
-/// ------------------------------------------------
+
 Future<DateTimeRange?> selectDateRange(
   BuildContext context,
   WidgetRef ref,

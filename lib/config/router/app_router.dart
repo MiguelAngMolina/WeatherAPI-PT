@@ -1,7 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:weatherapi_gse/presentation/screens/events/event_details_screen.dart';
 import 'package:weatherapi_gse/presentation/screens/events/event_screen.dart';
-import 'package:weatherapi_gse/presentation/screens/home.dart';
 import 'package:weatherapi_gse/presentation/screens/report/day_details_screen.dart';
 import 'package:weatherapi_gse/presentation/screens/maps/map_screen.dart';
 import 'package:weatherapi_gse/presentation/screens/report/report_screen.dart';
@@ -16,10 +15,6 @@ final GoRouter router =  GoRouter(
       path: '/',
       builder: (context, state) => SplashScreen(),
       ),
-
-    GoRoute(
-      path: '/events',
-      builder: (context, state) => Home(),),
 
     GoRoute(
       path: '/report',

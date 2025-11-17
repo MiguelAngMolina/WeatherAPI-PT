@@ -52,7 +52,6 @@ class WeatherBody extends StatelessWidget {
         children: [
             LocationHeader(report: report),
             const SizedBox(height: 16),
-             // Título del pronóstico
             Text(
               "Pronóstico de los últimos ${report.days.length} días",
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
